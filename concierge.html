@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concierge — VELORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">VELORA</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html" class="active">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="nav-actions">
+            <button onclick="toggleSearch()" class="search-btn">
+                Search
+            </button>
+
+            <a href="cart.html" class="bag-link">
+                Bag (<span id="cart-count">0</span>)
+            </a>
+        </div>
+
+    </nav>
+
+
+    <div id="search-panel" class="search-panel">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+    </div>
+
+
+    <main class="concierge-page">
+
+        <!-- HERO -->
+
+        <section class="concierge-hero">
+
+            <div class="concierge-hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=85"
+                    alt="VELORA Concierge"
+                >
+            </div>
+
+            <div class="concierge-hero-content">
+
+                <p class="eyebrow">
+                    VELORA CONCIERGE
+                </p>
+
+                <h1>
+                    A more personal
+                    way to shop.
+                </h1>
+
+                <p>
+                    From finding the right piece to building
+                    a complete wardrobe, our concierge service
+                    is designed around you.
+                </p>
+
+                <a href="#request" class="concierge-btn dark">
+                    Request a Session
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTRO -->
+
+        <section class="concierge-intro">
+
+            <p class="eyebrow">
+                PERSONAL SERVICE
+            </p>
+
+            <h2>
+                Considered guidance,
+                from first choice to final detail.
+            </h2>
+
+            <p>
+                Our concierge experience brings the VELORA
+                collection closer to you. Tell us what you're
+                looking for, and we'll help you discover pieces
+                that fit your needs, style and occasion.
+            </p>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="concierge-services">
+
+            <div class="concierge-services-heading">
+
+                <p class="eyebrow">
+                    OUR SERVICES
+                </p>
+
+                <h2>
+                    Designed around
+                    your needs.
+                </h2>
+
+            </div>
+
+
+            <div class="concierge-service-grid">
+
+                <article class="concierge-service">
+
+                    <span>01</span>
+
+                    <h3>
+                        Personal Styling
+                    </h3>
+
+                    <p>
+                        Receive considered recommendations
+                        based on your personal style, wardrobe
+                        and everyday needs.
+                    </p>
+
+                </article>
+
+
+                <article class="concierge-service">
+
+                    <span>02</span>
+
+                    <h3>
+                        Occasion Dressing
+                    </h3>
+
+                    <p>
+                        Looking for something specific?
+                        We'll help you find a considered look
+                        for your next occasion.
+                    </p>
+
+                </article>
+
+
+                <article class="concierge-service">
+
+                    <span>03</span>
+
+                    <h3>
+                        Wardrobe Edit
+                    </h3>
+
+                    <p>
+                        Build a more focused wardrobe with
+                        versatile pieces selected around
+                        your lifestyle.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROCESS -->
+
+        <section class="concierge-process">
+
+            <div class="process-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=85"
+                    alt="VELORA shopping experience"
+                >
+
+            </div>
+
+
+            <div class="process-content">
+
+                <p class="eyebrow">
+                    HOW IT WORKS
+                </p>
+
+                <h2>
+                    Simple by design.
+                </h2>
+
+
+                <div class="process-step">
+
+                    <span>01</span>
+
+                    <div>
+                        <h3>
+                            Tell us what you need
+                        </h3>
+
+                        <p>
+                            Complete the short request form
+                            and share what you're looking for.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>02</span>
+
+                    <div>
+                        <h3>
+                            We prepare your edit
+                        </h3>
+
+                        <p>
+                            Our team reviews your request and
+                            prepares a selection tailored to you.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>03</span>
+
+                    <div>
+                        <h3>
+                            Discover your selection
+                        </h3>
+
+                        <p>
+                            We'll connect with you to discuss
+                            the recommendations and next steps.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- REQUEST FORM -->
+
+        <section class="concierge-request" id="request">
+
+            <div class="request-heading">
+
+                <p class="eyebrow">
+                    PRIVATE APPOINTMENT
+                </p>
+
+                <h2>
+                    Request a
+                    concierge session.
+                </h2>
+
+                <p>
+                    Tell us a little about what you're looking
+                    for and we'll be in touch.
+                </p>
+
+            </div>
+
+
+            <form
+                class="concierge-form"
+                onsubmit="submitConcierge(event)"
+            >
+
+                <div class="concierge-form-grid">
+
+                    <div class="concierge-field">
+
+                        <label for="concierge-name">
+                            Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="concierge-name"
+                            placeholder="Your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="concierge-field">
+
+                        <label for="concierge-email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="concierge-email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="concierge-field">
+
+                        <label for="concierge-type">
+                            Service
+                        </label>
+
+                        <select
+                            id="concierge-type"
+                            required
+                        >
+
+                            <option value="">
+                                Select a service
+                            </option>
+
+                            <option>
+                                Personal Styling
+                            </option>
+
+                            <option>
+                                Occasion Dressing
+                            </option>
+
+                            <option>
+                                Wardrobe Edit
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="concierge-field">
+
+                        <label for="concierge-date">
+                            Preferred Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="concierge-date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="concierge-field full">
+
+                        <label for="concierge-message">
+                            Tell us what you're looking for
+                        </label>
+
+                        <textarea
+                            id="concierge-message"
+                            rows="6"
+                            placeholder="Tell us about your style, occasion or what you have in mind..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="concierge-submit"
+                >
+                    Request Appointment
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            id="concierge-success"
+            class="concierge-success"
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <p class="eyebrow">
+                REQUEST RECEIVED
+            </p>
+
+            <h2>
+                Thank you.
+            </h2>
+
+            <p>
+                Your concierge request has been received.
+                Our team will review your request and
+                contact you with the next steps.
+            </p>
+
+            <button
+                onclick="resetConcierge()"
+                class="concierge-btn dark"
+            >
+                Submit Another Request
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern form. Timeless presence.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 VELORA. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        function submitConcierge(event) {
+
+            event.preventDefault();
+
+            const request = {
+
+                name:
+                    document.getElementById(
+                        "concierge-name"
+                    ).value,
+
+                email:
+                    document.getElementById(
+                        "concierge-email"
+                    ).value,
+
+                service:
+                    document.getElementById(
+                        "concierge-type"
+                    ).value,
+
+                date:
+                    document.getElementById(
+                        "concierge-date"
+                    ).value,
+
+                message:
+                    document.getElementById(
+                        "concierge-message"
+                    ).value,
+
+                submittedAt:
+                    new Date().toISOString()
+
+            };
+
+
+            localStorage.setItem(
+                "veloraConciergeRequest",
+                JSON.stringify(request)
+            );
+
+
+            document.querySelector(
+                ".concierge-request"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "concierge-success"
+            ).classList.add("show");
+
+        }
+
+
+        function resetConcierge() {
+
+            document.querySelector(
+                ".concierge-form"
+            ).reset();
+
+            document.querySelector(
+                ".concierge-request"
+            ).style.display = "grid";
+
+
+            document.getElementById(
+                "concierge-success"
+            ).classList.remove("show");
+
+        }
+
+    </script>
+
+</body>
+</html>

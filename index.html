@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VELORA — Modern Luxury</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">VELORA</a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleSearch()">⌕</button>
+            <a href="cart.html" class="bag">
+                Bag <span id="cart-count">0</span>
+            </a>
+        </div>
+
+    </header>
+
+    <!-- Search -->
+    <div class="search-panel" id="search-panel">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+        <button onclick="toggleSearch()">×</button>
+    </div>
+
+
+    <!-- Hero -->
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">THE NEW SEASON</p>
+
+                <h1>
+                    Modern form.<br>
+                    Timeless presence.
+                </h1>
+
+                <p class="hero-text">
+                    Discover a considered collection of contemporary
+                    essentials designed for everyday elegance.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="shop.html" class="btn btn-dark">
+                        Explore Collection
+                    </a>
+
+                    <a href="collections.html" class="text-link">
+                        View Collections →
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Featured Collection -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">CURATED FOR YOU</p>
+
+                    <h2>
+                        The VELORA Edit
+                    </h2>
+                </div>
+
+                <a href="shop.html" class="text-link">
+                    Shop all →
+                </a>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <article class="feature-card feature-large">
+
+                    <div class="feature-image image-one"></div>
+
+                    <div class="feature-info">
+                        <p>01 / ESSENTIALS</p>
+                        <h3>Quiet Luxury</h3>
+                        <a href="shop.html">Discover →</a>
+                    </div>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-image image-two"></div>
+
+                    <div class="feature-info">
+                        <p>02 / COLLECTION</p>
+                        <h3>After Hours</h3>
+                        <a href="collections.html">Explore →</a>
+                    </div>
+
+                </article>
+
+
+                <article class="feature-card">
+
+                    <div class="feature-image image-three"></div>
+
+                    <div class="feature-info">
+                        <p>03 / ESSENTIALS</p>
+                        <h3>Everyday Form</h3>
+                        <a href="shop.html">Shop →</a>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Brand Statement -->
+        <section class="statement">
+
+            <p class="eyebrow">THE VELORA PHILOSOPHY</p>
+
+            <h2>
+                Designed with intention.<br>
+                Made to remain.
+            </h2>
+
+            <p>
+                VELORA creates refined pieces where contemporary
+                design meets lasting simplicity.
+            </p>
+
+            <a href="about.html" class="text-link">
+                Discover our story →
+            </a>
+
+        </section>
+
+
+        <!-- Featured Products -->
+        <section class="section products-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">SELECTED PIECES</p>
+                    <h2>New Arrivals</h2>
+                </div>
+
+                <a href="shop.html" class="text-link">
+                    View all →
+                </a>
+
+            </div>
+
+            <div class="product-preview">
+
+                <article class="product-card">
+                    <div class="product-image product-one"></div>
+                    <p>VELORA</p>
+                    <h3>Structured Wool Coat</h3>
+                    <span>$189</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image product-two"></div>
+                    <p>VELORA</p>
+                    <h3>Essential Knit</h3>
+                    <span>$89</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image product-three"></div>
+                    <p>VELORA</p>
+                    <h3>Minimal Leather Bag</h3>
+                    <span>$149</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-image product-four"></div>
+                    <p>VELORA</p>
+                    <h3>Signature Trousers</h3>
+                    <span>$99</span>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Concierge -->
+        <section class="concierge-preview">
+
+            <div>
+
+                <p class="eyebrow">PRIVATE SERVICE</p>
+
+                <h2>
+                    Your wardrobe,<br>
+                    considered personally.
+                </h2>
+
+                <p>
+                    From styling recommendations to finding the right
+                    piece for a special occasion, our concierge service
+                    is here to help.
+                </p>
+
+                <a href="concierge.html" class="btn btn-light">
+                    Meet the Concierge
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Journal -->
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="eyebrow">THE JOURNAL</p>
+                    <h2>Notes from VELORA</h2>
+                </div>
+
+                <a href="journal.html" class="text-link">
+                    Read journal →
+                </a>
+
+            </div>
+
+            <div class="journal-grid">
+
+                <article>
+                    <div class="journal-image journal-one"></div>
+                    <p>STYLE / 08.26</p>
+                    <h3>The art of everyday dressing</h3>
+                </article>
+
+                <article>
+                    <div class="journal-image journal-two"></div>
+                    <p>DESIGN / 08.26</p>
+                    <h3>Why simplicity lasts</h3>
+                </article>
+
+                <article>
+                    <div class="journal-image journal-three"></div>
+                    <p>EDIT / 08.26</p>
+                    <h3>The pieces worth keeping</h3>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <p class="eyebrow">STAY IN THE KNOW</p>
+
+        <h2>Join the VELORA list.</h2>
+
+        <p>
+            Receive new collection announcements, journal stories
+            and private offers.
+        </p>
+
+        <form>
+            <input
+                type="email"
+                placeholder="Your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe →
+            </button>
+        </form>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-brand">
+            <h2>VELORA</h2>
+            <p>
+                Modern essentials for a considered life.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Explore</h4>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Services</h4>
+            <a href="concierge.html">Concierge</a>
+            <a href="cart.html">Shopping Bag</a>
+            <a href="checkout.html">Checkout</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>Contact</h4>
+            <a href="mailto:hello@velora.com">hello@velora.com</a>
+            <a href="about.html">Our Story</a>
+        </div>
+
+    </footer>
+
+    <div class="copyright">
+        © 2026 VELORA. All rights reserved.
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shop — VELORA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .shop-header {
+            padding: 100px 6% 60px;
+            text-align: center;
+        }
+
+        .shop-header h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(55px, 8vw, 100px);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .shop-header p {
+            max-width: 550px;
+            margin: auto;
+            color: #777;
+        }
+
+        .shop-controls {
+            padding: 0 6% 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #dedbd4;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            border: 1px solid #bbb;
+            background: transparent;
+            padding: 10px 18px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+
+        .product-count {
+            font-size: 11px;
+            color: #777;
+            letter-spacing: 1px;
+        }
+
+        .shop-grid {
+            padding: 60px 6% 120px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 45px 18px;
+        }
+
+        .shop-product {
+            cursor: pointer;
+        }
+
+        .shop-product-image {
+            height: 520px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 18px;
+            transition: transform 0.4s ease;
+        }
+
+        .shop-product:hover .shop-product-image {
+            transform: translateY(-5px);
+        }
+
+        .shop-product-category {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .shop-product-name {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 4px 0;
+        }
+
+        .shop-product-price {
+            font-size: 13px;
+        }
+
+        .shop-product-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .shop-add-btn {
+            flex: 1;
+            padding: 12px;
+            background: #111;
+            color: white;
+            border: 1px solid #111;
+            cursor: pointer;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .shop-view-btn {
+            padding: 12px 15px;
+            background: transparent;
+            color: #111;
+            border: 1px solid #111;
+            cursor: pointer;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .shop-add-btn:hover {
+            background: #333;
+        }
+
+        .shop-view-btn:hover {
+            background: #111;
+            color: white;
+        }
+
+        @media (max-width: 1000px) {
+            .shop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .shop-header {
+                padding: 70px 20px 45px;
+            }
+
+            .shop-controls {
+                padding: 0 20px 30px;
+                display: block;
+            }
+
+            .product-count {
+                display: block;
+                margin-top: 20px;
+            }
+
+            .shop-grid {
+                padding: 45px 20px 80px;
+                grid-template-columns: 1fr;
+            }
+
+            .shop-product-image {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">VELORA</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-btn" onclick="toggleSearch()">⌕</button>
+
+            <a href="cart.html" class="bag">
+                Bag <span id="cart-count">0</span>
+            </a>
+        </div>
+
+    </header>
+
+
+    <!-- Search -->
+    <div class="search-panel" id="search-panel">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+
+        <button onclick="toggleSearch()">×</button>
+
+    </div>
+
+
+    <!-- Shop Header -->
+    <section class="shop-header">
+
+        <p class="eyebrow">
+            THE VELORA STORE
+        </p>
+
+        <h1>Shop</h1>
+
+        <p>
+            Discover refined essentials, considered accessories
+            and timeless pieces designed for modern living.
+        </p>
+
+    </section>
+
+
+    <!-- Filters -->
+    <section class="shop-controls">
+
+        <div class="filters">
+
+            <button
+                class="filter-btn active"
+                onclick="filterProducts('All', this)"
+            >
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Outerwear', this)"
+            >
+                Outerwear
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Knitwear', this)"
+            >
+                Knitwear
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Shirts', this)"
+            >
+                Shirts
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Trousers', this)"
+            >
+                Trousers
+            </button>
+
+            <button
+                class="filter-btn"
+                onclick="filterProducts('Accessories', this)"
+            >
+                Accessories
+            </button>
+
+        </div>
+
+        <div class="product-count" id="product-count">
+            8 pieces
+        </div>
+
+    </section>
+
+
+    <!-- Products -->
+    <main>
+
+        <div class="shop-grid" id="shop-grid"></div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern essentials for a considered life.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="journal.html">Journal</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Services</h4>
+
+            <a href="concierge.html">Concierge</a>
+            <a href="cart.html">Shopping Bag</a>
+            <a href="checkout.html">Checkout</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Contact</h4>
+
+            <a href="mailto:hello@velora.com">
+                hello@velora.com
+            </a>
+
+            <a href="about.html">
+                Our Story
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <div class="copyright">
+        © 2026 VELORA. All rights reserved.
+    </div>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+
+    <script>
+
+        let currentProducts = products;
+
+        function displayProducts(items) {
+
+            const grid = document.getElementById("shop-grid");
+
+            const count = document.getElementById("product-count");
+
+            count.textContent =
+                `${items.length} ${items.length === 1 ? "piece" : "pieces"}`;
+
+            grid.innerHTML = "";
+
+            items.forEach(product => {
+
+                const card = document.createElement("article");
+
+                card.className = "shop-product";
+
+                card.innerHTML = `
+
+                    <a href="product.html?id=${product.id}">
+
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            class="shop-product-image"
+                        >
+
+                    </a>
+
+                    <div class="shop-product-category">
+                        ${product.category}
+                    </div>
+
+                    <h2 class="shop-product-name">
+                        ${product.name}
+                    </h2>
+
+                    <div class="shop-product-price">
+                        $${product.price}
+                    </div>
+
+                    <div class="shop-product-actions">
+
+                        <button
+                            class="shop-add-btn"
+                            onclick="addProductToCart(${product.id}, event)"
+                        >
+                            Add to Bag
+                        </button>
+
+                        <button
+                            class="shop-view-btn"
+                            onclick="viewProduct(${product.id}, event)"
+                        >
+                            View
+                        </button>
+
+                    </div>
+                `;
+
+                grid.appendChild(card);
+
+            });
+        }
+
+
+        function filterProducts(category, button) {
+
+            document
+                .querySelectorAll(".filter-btn")
+                .forEach(btn => btn.classList.remove("active"));
+
+            button.classList.add("active");
+
+            if (category === "All") {
+
+                currentProducts = products;
+
+            } else {
+
+                currentProducts = products.filter(
+                    product => product.category === category
+                );
+
+            }
+
+            displayProducts(currentProducts);
+        }
+
+
+        function addProductToCart(productId, event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            addToCart(productId);
+
+        }
+
+
+        function viewProduct(productId, event) {
+
+            event.preventDefault();
+
+            window.location.href =
+                `product.html?id=${productId}`;
+
+        }
+
+
+        displayProducts(products);
+
+    </script>
+
+</body>
+</html>

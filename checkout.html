@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout — VELORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            VELORA
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="nav-actions">
+
+            <button onclick="toggleSearch()" class="search-btn">
+                Search
+            </button>
+
+            <a href="cart.html" class="bag-link">
+                Bag (<span id="cart-count">0</span>)
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Search -->
+    <div id="search-panel" class="search-panel">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+
+    </div>
+
+
+    <!-- Checkout -->
+    <main class="checkout-page">
+
+        <div class="checkout-header">
+
+            <p class="eyebrow">
+                SECURE CHECKOUT
+            </p>
+
+            <h1>Complete Your Order</h1>
+
+        </div>
+
+
+        <div id="checkout-container">
+
+            <div class="checkout-layout">
+
+
+                <!-- CUSTOMER INFORMATION -->
+
+                <section class="checkout-form">
+
+                    <div class="checkout-section">
+
+                        <p class="eyebrow">
+                            01 — CONTACT
+                        </p>
+
+                        <h2>Contact Information</h2>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SHIPPING -->
+
+                    <div class="checkout-section">
+
+                        <p class="eyebrow">
+                            02 — DELIVERY
+                        </p>
+
+                        <h2>Shipping Address</h2>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="first-name">
+                                    First Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="first-name"
+                                    placeholder="First name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="last-name">
+                                    Last Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="last-name"
+                                    placeholder="Last name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="address">
+                                    Address
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="address"
+                                    placeholder="Street address"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="city">
+                                    City
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="city"
+                                    placeholder="City"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="postal">
+                                    Postal Code
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="postal"
+                                    placeholder="Postal code"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="country">
+                                    Country
+                                </label>
+
+                                <select id="country">
+
+                                    <option value="">
+                                        Select country
+                                    </option>
+
+                                    <option>
+                                        Bangladesh
+                                    </option>
+
+                                    <option>
+                                        United States
+                                    </option>
+
+                                    <option>
+                                        United Kingdom
+                                    </option>
+
+                                    <option>
+                                        Canada
+                                    </option>
+
+                                    <option>
+                                        Australia
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAYMENT -->
+
+                    <div class="checkout-section">
+
+                        <p class="eyebrow">
+                            03 — PAYMENT
+                        </p>
+
+                        <h2>Payment Method</h2>
+
+                        <div class="payment-box">
+
+                            <div class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                    checked
+                                >
+
+                                <div>
+
+                                    <strong>
+                                        Cash on Delivery
+                                    </strong>
+
+                                    <p>
+                                        Pay when your order arrives.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="payment-option">
+
+                                <input
+                                    type="radio"
+                                    name="payment"
+                                >
+
+                                <div>
+
+                                    <strong>
+                                        Card Payment
+                                    </strong>
+
+                                    <p>
+                                        Demo payment option for this project.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="place-order-btn"
+                        onclick="placeOrder()"
+                    >
+                        Place Order
+                    </button>
+
+                </section>
+
+
+                <!-- ORDER SUMMARY -->
+
+                <aside class="checkout-summary">
+
+                    <p class="eyebrow">
+                        YOUR ORDER
+                    </p>
+
+                    <div id="checkout-items"></div>
+
+
+                    <div class="checkout-summary-line"></div>
+
+
+                    <div class="checkout-row">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <span id="checkout-subtotal">
+                            $0.00
+                        </span>
+
+                    </div>
+
+
+                    <div class="checkout-row">
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <span id="checkout-shipping">
+                            $0.00
+                        </span>
+
+                    </div>
+
+
+                    <div class="checkout-summary-line"></div>
+
+
+                    <div class="checkout-row checkout-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <span id="checkout-total">
+                            $0.00
+                        </span>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern form. Timeless presence.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="collections.html">
+                Collections
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="concierge.html">
+                Concierge
+            </a>
+
+            <a href="journal.html">
+                Journal
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 VELORA. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+
+    <script>
+
+        function renderCheckout() {
+
+            const itemsContainer =
+                document.getElementById("checkout-items");
+
+            if (!cart || cart.length === 0) {
+
+                document.getElementById(
+                    "checkout-container"
+                ).innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <p class="eyebrow">
+                            YOUR BAG IS EMPTY
+                        </p>
+
+                        <h2>
+                            Nothing to checkout.
+                        </h2>
+
+                        <p>
+                            Add something from the VELORA collection
+                            before continuing.
+                        </p>
+
+                        <a
+                            href="shop.html"
+                            class="btn-dark"
+                        >
+                            Return to Shop
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            let subtotal = 0;
+
+
+            itemsContainer.innerHTML = cart.map(item => {
+
+                const itemTotal =
+                    item.price * item.quantity;
+
+                subtotal += itemTotal;
+
+
+                return `
+
+                    <div class="checkout-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+                        <div class="checkout-item-info">
+
+                            <h3>
+                                ${item.name}
+                            </h3>
+
+                            <p>
+                                Qty: ${item.quantity}
+                            </p>
+
+                            <strong>
+                                $${itemTotal.toFixed(2)}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+
+            const shipping =
+                subtotal >= 150 ? 0 : 12;
+
+            const total =
+                subtotal + shipping;
+
+
+            document.getElementById(
+                "checkout-subtotal"
+            ).textContent =
+                `$${subtotal.toFixed(2)}`;
+
+
+            document.getElementById(
+                "checkout-shipping"
+            ).textContent =
+                shipping === 0
+                    ? "Complimentary"
+                    : `$${shipping.toFixed(2)}`;
+
+
+            document.getElementById(
+                "checkout-total"
+            ).textContent =
+                `$${total.toFixed(2)}`;
+
+        }
+
+
+        function placeOrder() {
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const firstName =
+                document.getElementById("first-name").value.trim();
+
+            const lastName =
+                document.getElementById("last-name").value.trim();
+
+            const address =
+                document.getElementById("address").value.trim();
+
+            const city =
+                document.getElementById("city").value.trim();
+
+            const postal =
+                document.getElementById("postal").value.trim();
+
+            const country =
+                document.getElementById("country").value;
+
+
+            if (
+                !email ||
+                !firstName ||
+                !lastName ||
+                !address ||
+                !city ||
+                !postal ||
+                !country
+            ) {
+
+                alert(
+                    "Please complete all required fields."
+                );
+
+                return;
+
+            }
+
+
+            const orderNumber =
+                "VEL-" +
+                Math.floor(
+                    100000 +
+                    Math.random() * 900000
+                );
+
+
+           const newOrder = {
+
+    orderNumber: orderNumber,
+
+    customer: {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        postal: postal,
+        country: country
+    },
+
+    items: cart,
+
+    total: cart.reduce(
+        (sum, item) =>
+            sum + (Number(item.price) * Number(item.quantity)),
+        0
+    ),
+
+    status: "Processing",
+
+    date: new Date().toISOString()
+
+};
+
+
+// Save the latest order
+localStorage.setItem(
+    "veloraLastOrder",
+    JSON.stringify(newOrder)
+);
+
+
+// Save order to the Admin order history
+const existingOrders =
+    JSON.parse(
+        localStorage.getItem("veloraOrders")
+    ) || [];
+
+
+existingOrders.push(newOrder);
+
+
+localStorage.setItem(
+    "veloraOrders",
+    JSON.stringify(existingOrders)
+);
+
+
+            localStorage.removeItem(
+                "veloraCart"
+            );
+
+            cart = [];
+
+            updateCartCount();
+
+
+            window.location.href =
+                "order-success.html";
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            renderCheckout
+        );
+
+    </script>
+
+</body>
+</html>

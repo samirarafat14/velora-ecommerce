@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product — VELORA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .product-page {
+            padding: 80px 6% 120px;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 70px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .product-main-image {
+            width: 100%;
+            height: 750px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 40px 0;
+            max-width: 500px;
+        }
+
+        .product-info h1 {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(45px, 5vw, 70px);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .product-description {
+            color: #666;
+            margin-bottom: 35px;
+            max-width: 430px;
+        }
+
+        .product-meta {
+            border-top: 1px solid #dedbd4;
+            border-bottom: 1px solid #dedbd4;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .meta-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            font-size: 12px;
+        }
+
+        .quantity-box {
+            display: flex;
+            width: 140px;
+            border: 1px solid #bbb;
+            margin-bottom: 15px;
+        }
+
+        .quantity-box button {
+            width: 40px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .quantity-box span {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-large {
+            width: 100%;
+            padding: 18px;
+            background: #111;
+            color: white;
+            border: 1px solid #111;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 11px;
+        }
+
+        .add-large:hover {
+            background: #333;
+        }
+
+        .back-shop {
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid;
+        }
+
+        .product-not-found {
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        @media (max-width: 900px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-main-image {
+                height: 600px;
+            }
+
+            .product-info {
+                padding: 10px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .product-page {
+                padding: 50px 20px 80px;
+            }
+
+            .product-main-image {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+
+    <header class="navbar">
+
+        <a href="index.html" class="logo">VELORA</a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="icon-btn" onclick="toggleSearch()">
+                ⌕
+            </button>
+
+            <a href="cart.html" class="bag">
+                Bag <span id="cart-count">0</span>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <div class="search-panel" id="search-panel">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+
+        <button onclick="toggleSearch()">×</button>
+
+    </div>
+
+
+    <main class="product-page">
+
+        <a href="shop.html" class="back-shop">
+            ← Back to Shop
+        </a>
+
+        <div id="product-container"></div>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern essentials for a considered life.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Explore</h4>
+
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="journal.html">Journal</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Services</h4>
+
+            <a href="concierge.html">Concierge</a>
+            <a href="cart.html">Shopping Bag</a>
+            <a href="checkout.html">Checkout</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>Contact</h4>
+
+            <a href="mailto:hello@velora.com">
+                hello@velora.com
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <div class="copyright">
+        © 2026 VELORA. All rights reserved.
+    </div>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        const params = new URLSearchParams(
+            window.location.search
+        );
+
+        const productId = Number(
+            params.get("id")
+        );
+
+        const product = products.find(
+            item => item.id === productId
+        );
+
+        const container =
+            document.getElementById("product-container");
+
+
+        if (!product) {
+
+            container.innerHTML = `
+                <div class="product-not-found">
+                    <h1>Product not found</h1>
+                    <br>
+                    <a href="shop.html" class="text-link">
+                        Return to Shop →
+                    </a>
+                </div>
+            `;
+
+        } else {
+
+            container.innerHTML = `
+
+                <div class="product-detail">
+
+                    <div>
+                        <img
+                            src="${product.image}"
+                            alt="${product.name}"
+                            class="product-main-image"
+                        >
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <p class="eyebrow">
+                            ${product.collection}
+                        </p>
+
+                        <h1>
+                            ${product.name}
+                        </h1>
+
+                        <div class="product-price">
+                            $${product.price}
+                        </div>
+
+                        <p class="product-description">
+                            ${product.description}
+                        </p>
+
+
+                        <div class="product-meta">
+
+                            <div class="meta-row">
+                                <span>Category</span>
+                                <strong>${product.category}</strong>
+                            </div>
+
+                            <div class="meta-row">
+                                <span>Collection</span>
+                                <strong>${product.collection}</strong>
+                            </div>
+
+                            <div class="meta-row">
+                                <span>Shipping</span>
+                                <strong>Complimentary over $150</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="quantity-box">
+
+                            <button onclick="changeQuantity(-1)">
+                                −
+                            </button>
+
+                            <span id="quantity">
+                                1
+                            </span>
+
+                            <button onclick="changeQuantity(1)">
+                                +
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            class="add-large"
+                            onclick="addProductToBag()"
+                        >
+                            Add to Bag
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+        }
+
+
+        let selectedQuantity = 1;
+
+
+        function changeQuantity(amount) {
+
+            selectedQuantity += amount;
+
+            if (selectedQuantity < 1) {
+                selectedQuantity = 1;
+            }
+
+            document.getElementById("quantity")
+                .textContent = selectedQuantity;
+        }
+
+
+        function addProductToBag() {
+
+            for (let i = 0; i < selectedQuantity; i++) {
+                addToCart(product.id);
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Bag — VELORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">VELORA</a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="nav-actions">
+            <button onclick="toggleSearch()" class="search-btn">
+                Search
+            </button>
+
+            <a href="cart.html" class="bag-link">
+                Bag (<span id="cart-count">0</span>)
+            </a>
+        </div>
+    </nav>
+
+    <!-- Search -->
+    <div id="search-panel" class="search-panel">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+    </div>
+
+    <!-- Cart -->
+    <main class="cart-page">
+
+        <div class="cart-header">
+            <p class="eyebrow">YOUR SELECTION</p>
+            <h1>Your Bag</h1>
+        </div>
+
+        <div id="cart-container"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-brand">
+            <h2>VELORA</h2>
+            <p>
+                Modern form. Timeless presence.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 VELORA. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        function renderCart() {
+
+            const container = document.getElementById("cart-container");
+
+            if (!cart || cart.length === 0) {
+
+                container.innerHTML = `
+                    <div class="empty-cart">
+                        <p class="eyebrow">YOUR BAG IS EMPTY</p>
+
+                        <h2>Nothing here yet.</h2>
+
+                        <p>
+                            Discover the latest VELORA collection
+                            and find something made for your everyday.
+                        </p>
+
+                        <a href="shop.html" class="btn-dark">
+                            Explore Shop
+                        </a>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                subtotal += item.price * item.quantity;
+            });
+
+
+            const shipping = subtotal >= 150 ? 0 : 12;
+
+            const total = subtotal + shipping;
+
+
+            container.innerHTML = `
+
+                <div class="cart-layout">
+
+                    <div class="cart-items">
+
+                        ${cart.map(item => `
+
+                            <div class="cart-item">
+
+                                <img
+                                    src="${item.image}"
+                                    alt="${item.name}"
+                                >
+
+                                <div class="cart-item-info">
+
+                                    <p class="cart-category">
+                                        ${item.category}
+                                    </p>
+
+                                    <h2>${item.name}</h2>
+
+                                    <p class="cart-price">
+                                        $${item.price}
+                                    </p>
+
+                                    <div class="cart-controls">
+
+                                        <button
+                                            onclick="changeCartQuantity(${item.id}, -1)"
+                                        >
+                                            −
+                                        </button>
+
+                                        <span>${item.quantity}</span>
+
+                                        <button
+                                            onclick="changeCartQuantity(${item.id}, 1)"
+                                        >
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                    <button
+                                        class="remove-btn"
+                                        onclick="removeCartItem(${item.id})"
+                                    >
+                                        Remove
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        `).join("")}
+
+                    </div>
+
+
+                    <aside class="cart-summary">
+
+                        <p class="eyebrow">
+                            ORDER SUMMARY
+                        </p>
+
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>$${subtotal.toFixed(2)}</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>
+                                ${shipping === 0 ? "Complimentary" : "$12.00"}
+                            </span>
+                        </div>
+
+                        <div class="summary-line"></div>
+
+                        <div class="summary-row total-row">
+                            <span>Total</span>
+                            <span>$${total.toFixed(2)}</span>
+                        </div>
+
+                        <a
+                            href="checkout.html"
+                            class="checkout-btn"
+                        >
+                            Proceed to Checkout
+                        </a>
+
+                        <p class="shipping-note">
+                            Complimentary shipping on orders over $150.
+                        </p>
+
+                    </aside>
+
+                </div>
+            `;
+        }
+
+
+        function changeCartQuantity(productId, change) {
+
+            const item = cart.find(
+                product => product.id === productId
+            );
+
+            if (!item) return;
+
+            item.quantity += change;
+
+            if (item.quantity <= 0) {
+                cart = cart.filter(
+                    product => product.id !== productId
+                );
+            }
+
+            localStorage.setItem(
+                "veloraCart",
+                JSON.stringify(cart)
+            );
+
+            updateCartCount();
+
+            renderCart();
+        }
+
+
+        function removeCartItem(productId) {
+
+            cart = cart.filter(
+                product => product.id !== productId
+            );
+
+            localStorage.setItem(
+                "veloraCart",
+                JSON.stringify(cart)
+            );
+
+            updateCartCount();
+
+            renderCart();
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            renderCart
+        );
+
+    </script>
+
+</body>
+</html>

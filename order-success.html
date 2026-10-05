@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed — VELORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Announcement -->
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            VELORA
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="nav-actions">
+
+            <button onclick="toggleSearch()" class="search-btn">
+                Search
+            </button>
+
+            <a href="cart.html" class="bag-link">
+                Bag (<span id="cart-count">0</span>)
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- Search -->
+    <div id="search-panel" class="search-panel">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+    </div>
+
+
+    <!-- ORDER SUCCESS -->
+
+    <main class="success-page">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <p class="eyebrow">
+            ORDER CONFIRMED
+        </p>
+
+        <h1>
+            Thank You.
+        </h1>
+
+        <p class="success-message">
+            Your VELORA order has been successfully placed.
+            We appreciate your choice and look forward to
+            delivering your selection.
+        </p>
+
+
+        <div class="order-card">
+
+            <div class="order-card-header">
+
+                <div>
+                    <p class="eyebrow">
+                        ORDER NUMBER
+                    </p>
+
+                    <h2 id="order-number">
+                        VEL-000000
+                    </h2>
+                </div>
+
+                <div class="order-status">
+                    Confirmed
+                </div>
+
+            </div>
+
+
+            <div class="success-divider"></div>
+
+
+            <!-- CUSTOMER -->
+
+            <div class="success-section">
+
+                <p class="eyebrow">
+                    DELIVERY DETAILS
+                </p>
+
+                <div id="customer-details">
+                </div>
+
+            </div>
+
+
+            <div class="success-divider"></div>
+
+
+            <!-- ITEMS -->
+
+            <div class="success-section">
+
+                <p class="eyebrow">
+                    YOUR ITEMS
+                </p>
+
+                <div id="success-items">
+                </div>
+
+            </div>
+
+
+            <div class="success-divider"></div>
+
+
+            <!-- TOTAL -->
+
+            <div class="success-total">
+
+                <span>
+                    Order Total
+                </span>
+
+                <strong id="success-total">
+                    $0.00
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="success-actions">
+
+            <a
+                href="shop.html"
+                class="success-btn dark"
+            >
+                Continue Shopping
+            </a>
+
+            <a
+                href="index.html"
+                class="success-btn light"
+            >
+                Back to Home
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern form. Timeless presence.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="shop.html">
+                Shop
+            </a>
+
+            <a href="collections.html">
+                Collections
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="concierge.html">
+                Concierge
+            </a>
+
+            <a href="journal.html">
+                Journal
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 VELORA. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+        function renderSuccessPage() {
+
+            const orderData =
+                JSON.parse(
+                    localStorage.getItem("veloraLastOrder")
+                );
+
+
+            if (!orderData) {
+
+                document.querySelector(
+                    ".success-page"
+                ).innerHTML = `
+
+                    <div class="empty-cart">
+
+                        <p class="eyebrow">
+                            NO RECENT ORDER
+                        </p>
+
+                        <h2>
+                            Order information not found.
+                        </h2>
+
+                        <p>
+                            Start shopping to place a new order.
+                        </p>
+
+                        <a
+                            href="shop.html"
+                            class="btn-dark"
+                        >
+                            Explore Shop
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            /* ORDER NUMBER */
+
+            document.getElementById(
+                "order-number"
+            ).textContent =
+                orderData.orderNumber;
+
+
+            /* CUSTOMER */
+
+            const customer =
+                orderData.customer;
+
+
+            document.getElementById(
+                "customer-details"
+            ).innerHTML = `
+
+                <div class="customer-info">
+
+                    <strong>
+                        ${customer.firstName}
+                        ${customer.lastName}
+                    </strong>
+
+                    <p>
+                        ${customer.email}
+                    </p>
+
+                    <p>
+                        ${customer.address}
+                    </p>
+
+                    <p>
+                        ${customer.city},
+                        ${customer.postal}
+                    </p>
+
+                    <p>
+                        ${customer.country}
+                    </p>
+
+                </div>
+
+            `;
+
+
+            /* ITEMS */
+
+            let subtotal = 0;
+
+
+            document.getElementById(
+                "success-items"
+            ).innerHTML = orderData.items.map(item => {
+
+                const itemTotal =
+                    item.price * item.quantity;
+
+                subtotal += itemTotal;
+
+
+                return `
+
+                    <div class="success-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+                        <div class="success-item-info">
+
+                            <h3>
+                                ${item.name}
+                            </h3>
+
+                            <p>
+                                ${item.category}
+                            </p>
+
+                            <p>
+                                Quantity: ${item.quantity}
+                            </p>
+
+                        </div>
+
+                        <strong>
+                            $${itemTotal.toFixed(2)}
+                        </strong>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+
+            /* TOTAL */
+
+            const shipping =
+                subtotal >= 150 ? 0 : 12;
+
+            const total =
+                subtotal + shipping;
+
+
+            document.getElementById(
+                "success-total"
+            ).textContent =
+                `$${total.toFixed(2)}`;
+
+
+            updateCartCount();
+
+        }
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            renderSuccessPage
+        );
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections — VELORA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="announcement">
+        Complimentary shipping on orders over $150
+    </div>
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            VELORA
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html" class="active">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+        </div>
+
+        <div class="nav-actions">
+
+            <button onclick="toggleSearch()" class="search-btn">
+                Search
+            </button>
+
+            <a href="cart.html" class="bag-link">
+                Bag (<span id="cart-count">0</span>)
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <div id="search-panel" class="search-panel">
+
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search VELORA..."
+        >
+
+    </div>
+
+
+    <!-- COLLECTION HERO -->
+
+    <main class="collections-page">
+
+        <section class="collections-hero">
+
+            <p class="eyebrow">
+                THE VELORA EDIT
+            </p>
+
+            <h1>
+                Collections
+            </h1>
+
+            <p>
+                Thoughtfully designed collections built around
+                modern essentials, refined silhouettes and
+                effortless everyday style.
+            </p>
+
+        </section>
+
+
+        <!-- ESSENTIALS -->
+
+        <section class="collection-feature">
+
+            <div class="collection-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1400&q=85"
+                    alt="Essentials Collection"
+                >
+
+            </div>
+
+            <div class="collection-content">
+
+                <p class="eyebrow">
+                    01 — ESSENTIALS
+                </p>
+
+                <h2>
+                    Everyday,
+                    refined.
+                </h2>
+
+                <p>
+                    The foundation of the VELORA wardrobe.
+                    Clean silhouettes, versatile layers and
+                    timeless pieces designed to work together.
+                </p>
+
+                <a
+                    href="shop.html?collection=Essentials"
+                    class="collection-btn"
+                >
+                    Explore Essentials
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIGNATURE -->
+
+        <section class="collection-feature reverse">
+
+            <div class="collection-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85"
+                    alt="Signature Collection"
+                >
+
+            </div>
+
+            <div class="collection-content">
+
+                <p class="eyebrow">
+                    02 — SIGNATURE
+                </p>
+
+                <h2>
+                    Defined by
+                    detail.
+                </h2>
+
+                <p>
+                    Distinctive pieces created for those moments
+                    when simplicity deserves a little more presence.
+                </p>
+
+                <a
+                    href="shop.html?collection=Signature"
+                    class="collection-btn"
+                >
+                    Explore Signature
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMER -->
+
+        <section class="collection-feature">
+
+            <div class="collection-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1400&q=85"
+                    alt="Summer Collection"
+                >
+
+            </div>
+
+            <div class="collection-content">
+
+                <p class="eyebrow">
+                    03 — SUMMER
+                </p>
+
+                <h2>
+                    Lightness
+                    in motion.
+                </h2>
+
+                <p>
+                    Breathable fabrics, relaxed proportions and
+                    effortless layers designed for warmer days.
+                </p>
+
+                <a
+                    href="shop.html?collection=Summer"
+                    class="collection-btn"
+                >
+                    Explore Summer
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- AFTER HOURS -->
+
+        <section class="collection-feature reverse">
+
+            <div class="collection-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1400&q=85"
+                    alt="After Hours Collection"
+                >
+
+            </div>
+
+            <div class="collection-content">
+
+                <p class="eyebrow">
+                    04 — AFTER HOURS
+                </p>
+
+                <h2>
+                    Evening,
+                    elevated.
+                </h2>
+
+                <p>
+                    Refined tailoring and sophisticated layers
+                    created for evenings that call for something
+                    more considered.
+                </p>
+
+                <a
+                    href="shop.html?collection=After%20Hours"
+                    class="collection-btn"
+                >
+                    Explore After Hours
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- COLLECTION STATEMENT -->
+
+        <section class="collections-statement">
+
+            <p class="eyebrow">
+                VELORA
+            </p>
+
+            <h2>
+                Less noise.
+                More presence.
+            </h2>
+
+            <a href="shop.html" class="collection-btn dark">
+                View All Products
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            <h2>VELORA</h2>
+
+            <p>
+                Modern form. Timeless presence.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+            <a href="concierge.html">Concierge</a>
+            <a href="journal.html">Journal</a>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 VELORA. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
