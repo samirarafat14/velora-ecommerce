@@ -35,6 +35,13 @@
             <a href="cart.html" class="bag-link">
                 Bag (<span id="cart-count">0</span>)
             </a>
+
+            <!-- ADDED MOBILE HAMBURGER BUTTON -->
+            <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </nav>
 
@@ -149,10 +156,7 @@
                                         ${item.category}
                                     </p>
 
-                                    <h2>${item.name}</h2>
-
-                                    <p class="cart-price">
-                                        $${item.price}
+                                    <h2>${item.name}</h2>                                      <p class="cart-price">                                         $${item.price}
                                     </p>
 
                                     <div class="cart-controls">

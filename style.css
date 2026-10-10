@@ -209,6 +209,14 @@ input {
     letter-spacing: 2.5px;
     text-transform: uppercase;
     margin-bottom: 18px;
+
+}
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    color: #999;
 }
 
 .hero h1 {
@@ -3710,4 +3718,90 @@ input {
     flex-direction: column;
   }
 
+}
+
+/* =========================================
+   MOBILE HAMBURGER MENU FIX
+========================================= */
+
+/* Desktop: hide the hamburger button */
+.hamburger-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+}
+
+.hamburger-line {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background-color: var(--black);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transform hamburger into an 'X' when open */
+.hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* Mobile Screens (Tablets and Phones) */
+@media (max-width: 900px) {
+
+    /* Show hamburger icon */
+    .hamburger-btn {
+        display: flex !important;
+    }
+
+    /* Convert links into a slide-down drawer menu */
+    .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        position: fixed !important;
+        top: 82px !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: var(--cream) !important;
+        border-bottom: 1px solid var(--border) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+        padding: 30px 6% !important;
+        gap: 22px !important;
+        transform: translateY(-120%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s !important;
+        z-index: 999 !important;
+    }
+
+    /* When menu is clicked open */
+    .nav-links.active {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    .nav-links a {
+        font-size: 14px !important;
+        letter-spacing: 2px !important;
+        display: block !important;
+        width: 100% !important;
+        padding-bottom: 6px !important;
+    }
 }
